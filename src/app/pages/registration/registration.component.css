@@ -5,3 +5,15 @@
   max-width: 500px;
   margin-top: 30px;
 }
+
+:host::ng-deep .button .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  justify-content: center;
+  gap: 15px;
+}
+
+:host::ng-deep .message {
+  background-color: black !important;
+}

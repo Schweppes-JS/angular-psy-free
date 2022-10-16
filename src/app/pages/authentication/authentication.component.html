@@ -1,1 +1,17 @@
-<p>authentication works!</p>
+<form class="form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+  <mat-form-field appearance="fill">
+    <mat-label>Email address</mat-label>
+    <input matInput required placeholder="email@address.example" formControlName="email" />
+    <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required type="password" placeholder="password" formControlName="password" />
+    <mat-error *ngIf="password?.errors?.['required']">First Name is required</mat-error>
+  </mat-form-field>
+
+  <button class="button" type="submit" mat-raised-button color="accent">
+    <span>Login</span><mat-spinner *ngIf="loadingHendler.isLoading$ | async" diameter="18"></mat-spinner>
+  </button>
+  <mat-error>{{ loginError }}</mat-error>
+</form>
